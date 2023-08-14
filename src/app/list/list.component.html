@@ -1,1 +1,32 @@
-<p>list works!</p>
+<div class="container grid">
+    <p class="container text-center col-md-6">
+        <em>
+            To-Do es tu compañero confiable para mantener tus tareas diarias, proyectos y metas organizados de manera eficiente. 
+            Simplifica tu vida y maximiza tu productividad con nuestra intuitiva aplicación de lista de tareas. 
+            Ya sea que estés organizando tu trabajo, estudios, tareas del hogar o proyectos personales,
+            To-Do te ayuda a mantener el control y lograr más en tu día.
+        </em>
+    </p>
+    <div>
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-6 date">
+                <input [(ngModel)]="item_date" type="date">
+            </div>
+            <div class="col-md-4 task">
+                <input [(ngModel)]="item_task" type="text" placeholder="Ingrese una descripcion">
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-primary" (click)="addTask()">Agregar</button>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center text-center">
+        <h4>Lista de tareas</h4>
+
+        <li *ngFor="let item of lista; index as i" 
+        class="list-group-item pt-2">
+        {{item.task}} {{item.date_of | date:'dd/MM/yyyy'}}
+        <button class="btn btn-danger" (click)="delete(i)">Borrar</button>
+        </li>
+    </div>
+</div>
